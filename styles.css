@@ -1309,7 +1309,7 @@ body {
     margin-top: 20px;
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .boss-table-section {
@@ -1439,6 +1439,16 @@ body {
 .nightlord-bdqm {
     background: #6c5ce7;
     color: white;
+}
+
+.nightlord-qxn {
+    background: #fab1a0;
+    color: #4d5051;
+}
+
+.nightlord-ljw {
+    background: #d63031;
+    color: #4d5051;
 }
 
 /* Responsive adjustments for boss tables */
