@@ -830,6 +830,36 @@ body {
     text-align: center;
 }
 
+/* 点位候选较多时（大教堂/遗迹/湖沼/锻造村同一点位最多 24 种）改成多列 + 可滚动 */
+.context-menu--wide {
+    max-height: 60vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    min-width: 480px;
+}
+
+.context-menu--wide .context-menu-item {
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.context-menu-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.context-menu-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #808080;
+    margin: 0 7px;
+    flex: 0 0 auto;
+}
+
 #map-canvas {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
