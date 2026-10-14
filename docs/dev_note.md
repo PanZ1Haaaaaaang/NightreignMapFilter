@@ -55,6 +55,35 @@ python tools\import_seed_images.py --source "D:\games\NightReign\地图种子信
 - `types.<类型key>.icon`：可选，指定图标来源结构 ID（默认取 `ids` 里最小的）。
 - 生成图标时，若 `assets/icons/construct/<key>.png` 与源素材不同，视为自定义图标并**保留不覆盖**。
 
+### 布局注意（排查过的一个坑）
+
+显示种子大图后，整页会变宽、右侧「夜晚Boss/特殊事件」栏被挤成 3 列（甚至出现横向滚动条）。原因链：
+
+1. `#seed-image-container` 原来有 `min-width: 900px`；
+2. `.results-grid` 用的是 `1fr`，`1fr` 的最小尺寸是 auto（= 内容最小宽度），于是该列被顶到 ≥900px；
+3. `.container` 是 `body`（flex 列容器）的子项且带 `margin: 0 auto` —— 横向 auto margin 会让它**不再被拉伸**，
+   变成 shrink-to-fit，于是宽度 = min-content（约 1352px）> 视口，整页溢出、右侧栏多挤进一列。
+
+已做的修正：
+
+- `.container` 加 `width: 100%`（配合 `max-width: 1400px` + `margin: 0 auto` 仍然居中）；
+- `.results-grid` 改成 `320px minmax(0, 1fr)`，`.left-panel` / `.map-container` 加 `min-width: 0`；
+- `#seed-image-container` 去掉 `min-width: 900px`，改为 `width/max-width: 100%; min-width: 0`；
+- `.boss-table-container` **最多两列**：默认单列，视口 ≥1280px 才两列。依据：实测（无头浏览器量
+  `.nightlord-tag` 的 `offsetTop` 行数）单栏 <572px 时，「三狼事件 / 新型黑夜威胁」这类 8 标签的行会折成两行；
+  三列时单栏只有 413px，6 行折行。手机单列会折行，可接受。
+
+**验证手段**：临时放一个页面把 `index.html` 塞进指定宽度的 iframe，自动点击种子/地图/画布，
+把 `scrollWidth`、`gridTemplateColumns` 等测量值渲染成文字，用无头 Chrome 截图读取：
+
+```powershell
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --no-sandbox `
+  --window-size=700,340 --virtual-time-budget=12000 --screenshot=probe.png `
+  "http://localhost:8000/_layout_probe.html?w=1280&click=1"
+```
+
+（这套探针文件用完即删，不要提交。）
+
 ### 数据模型
 
 - `assets/data/slots.js`（生成物）：`POIS_BY_MAP[地图] = [{id,x,y,options:[类型key...]}]`、
