@@ -68,17 +68,46 @@ def load_icon_hashes(materials):
     return h
 
 
-def build_key_table(icon_of):
-    """(类别, 素材图) -> 类型 key；代表 ID 取该组里最小的结构 ID"""
+def load_type_config(project):
+    """读取手工维护的类型表（标签/顺序/结构ID归属）"""
+    path = os.path.join(project, 'tools', 'type_config.json')
+    if not os.path.exists(path):
+        print('[config] 未找到 tools/type_config.json，使用自动归并')
+        return {'categoryOrder': [], 'categoryZH': {}, 'types': {}}
+    cfg = json.load(open(path, encoding='utf-8'))
+    cfg.setdefault('categoryOrder', [])
+    cfg.setdefault('categoryZH', {})
+    cfg.setdefault('types', {})
+    print(f"[config] 类型表 {len(cfg['types'])} 项")
+    return cfg
+
+
+def build_key_table(icon_of, config, present_ids):
+    """结构 ID -> 类型 key。先按 type_config.json 的显式 ids，再按 (类别, 素材图) 自动归并剩余 ID。
+
+    present_ids：源数据里实际出现过的结构 ID，避免给不存在的 ID 造出空类型。
+    """
+    table, warned = {}, []
+    for key, meta in config['types'].items():
+        for t in meta.get('ids', []):
+            t = int(t)
+            if t in table:
+                warned.append(f'结构 {t} 同时属于 {table[t]} 和 {key}')
+            table[t] = key
+            if t not in CAT_OF:
+                warned.append(f'结构 {t}（{key}）不在已知类别里，请检查拼写')
     groups = defaultdict(list)
     for t, cat in CAT_OF.items():
+        if t in table or t not in present_ids:
+            continue
         groups[(cat, icon_of.get(t))].append(t)
-    table = {}
     for (cat, _h), ts in groups.items():
         ts = sorted(ts)
         key = LEGACY_KEY.get(cat, f'{cat}_{ts[0]}')
         for t in ts:
             table[t] = key
+    for w in warned:
+        print(f'[config] 警告: {w}')
     return table
 
 
@@ -87,31 +116,64 @@ def type_key(stype, key_table):
     return key_table.get(int(stype))
 
 
-def export_icons(key_table, icon_of, materials, project):
-    """把每个类型 key 的代表图标拷进项目"""
+def label_of(key, config):
+    meta = config['types'].get(key)
+    if meta and meta.get('label'):
+        return meta['label']
+    if key in LABELS:
+        return LABELS[key]
+    cat, _, rep = key.partition('_')
+    return f'{config["categoryZH"].get(cat, cat)} {rep}'
+
+
+def sort_order(key, config, key_table):
+    """菜单排序键：(类别的先后, 类别内 order, key)"""
+    cat = key.split('_')[0]
+    order = config['categoryOrder']
+    cat_idx = order.index(cat) if cat in order else len(order)
+    meta = config['types'].get(key) or {}
+    inner = meta.get('order')
+    if inner is None:
+        inner = min((t for t, k in key_table.items() if k == key), default=999)
+    return (cat_idx, inner, key)
+
+
+def icon_source_id(key, config, key_table):
+    meta = config['types'].get(key) or {}
+    if meta.get('icon'):
+        return int(meta['icon'])
+    ids = sorted(t for t, k in key_table.items() if k == key)
+    return ids[0] if ids else None
+
+
+def export_icons(key_table, config, materials, project):
+    """把每个类型 key 的图标拷进项目；已存在的自定义图标不覆盖"""
     outdir = os.path.join(project, 'assets', 'icons', 'construct')
     os.makedirs(outdir, exist_ok=True)
-    rep = {}
-    for t, k in sorted(key_table.items()):
-        rep.setdefault(k, t)
-    written = 0
-    for k, t in rep.items():
-        src = os.path.join(materials, f'Construct_{t}.png')
-        if not os.path.exists(src):
-            print(f'[icon] 缺素材 {src}')
+    keys = sorted({k for k in key_table.values()}, key=lambda k: sort_order(k, config, key_table))
+    written = kept = missing = 0
+    for k in keys:
+        src_id = icon_source_id(k, config, key_table)
+        src = os.path.join(materials, f'Construct_{src_id}.png')
+        if src_id is None or not os.path.exists(src):
+            print(f'[icon] 缺素材 Construct_{src_id}.png（类型 {k}）')
+            missing += 1
             continue
-        dst = os.path.join(outdir, f'{k}.png')
         data = open(src, 'rb').read()
+        dst = os.path.join(outdir, f'{k}.png')
+        if os.path.exists(dst) and open(dst, 'rb').read() != data:
+            kept += 1
+            continue  # 视为自定义图标，保留
         if not os.path.exists(dst) or open(dst, 'rb').read() != data:
             open(dst, 'wb').write(data)
             written += 1
-    print(f'[icon] 导出 {len(rep)} 个类型图标到 assets/icons/construct（更新 {written} 个）')
+    print(f'[icon] 类型图标 {len(keys)} 个（新写 {written}，保留自定义 {kept}，缺素材 {missing}）')
 
 
 # 界面文案：类型 key -> 名称（图标为主，名称用于提示与无障碍）
 CAT_ZH = {'church': '教堂', 'mage': '法师塔', 'village': '村庄', 'cathedral': '大教堂',
           'ruin': '遗迹', 'marsh': '湖沼', 'forge': '锻造村', 'city': '主城',
-          'elite': '精英', 'cart': '车队'}
+          'elite': '精英', 'cart': '马车'}
 LABELS = {
     'church': '教堂', 'mage': '法师塔', 'village': '村庄',
     'cathedral_38000': '大教堂·使者', 'cathedral_38001': '大教堂·守卫',
@@ -126,7 +188,7 @@ LABELS = {
     'city_53670': '右下主城·腐败', 'city_53680': '右下主城·圣',
     'elite_53600': '精英·恶兆猎人', 'elite_53610': '精英·猎犬骑士',
     'elite_53700': '精英·失乡', 'elite_53710': '精英·咒剑士', 'elite_53720': '精英·噩兆',
-    'cart_51150': '车队',
+    'cart_51150': '马车',
 }
 MAP_ZH = {'Default': '默认', 'Mountaintop': '山顶', 'Crater': '火山口',
           'Rotted Woods': '腐败森林', 'Noklateo': '隐城', 'Hollow': '大空洞'}
@@ -137,12 +199,10 @@ NIGHTLORD_ORDER = ['Gladius', 'Adel', 'Gnoster', 'Maris', 'Libra', 'Fulghor', 'C
 MAP_ORDER = ['Default', 'Mountaintop', 'Crater', 'Rotted Woods', 'Noklateo', 'Hollow']
 
 
-def export_slots_js(model, key_table, project, out_js):
+def export_slots_js(model, config, key_table, project, out_js):
     """产出前端常量表 assets/data/slots.js"""
-    icon_of_key = {}
-    for t, k in sorted(key_table.items()):
-        icon_of_key.setdefault(k, t)
     lines = ['// 由 tools/build_seed_data.py 自动生成，请勿手工修改',
+             '// 类型文案 / 顺序 / 结构ID归属请改 tools/type_config.json，重跑本脚本即可',
              '// 结构：POIS_BY_MAP[地图][i] = { id, x, y, options:[类型key...] }',
              '']
     lines.append('const NIGHTLORDS = [' + ', '.join(f"'{n}'" for n in NIGHTLORD_ORDER) + ", 'Unknown'];")
@@ -158,29 +218,29 @@ def export_slots_js(model, key_table, project, out_js):
         lines.append(f"  '{m}': '{MAP_ZH[m]}',")
     lines.append('};')
     lines.append('')
+    used_keys = sorted({o for sl in model.values() for s in sl for o in s['options']},
+                       key=lambda k: sort_order(k, config, key_table))
     lines.append('const TYPE_INFO = {')
-    used_keys = sorted({o for sl in model.values() for s in sl for o in s['options']})
     for k in used_keys:
-        label = LABELS.get(k)
-        if label is None:
-            cat, _, rep = k.partition('_')
-            label = f'{CAT_ZH.get(cat, cat)} {rep}'
-        lines.append(f"  '{k}': {{ label: '{label}', icon: 'assets/icons/construct/{k}.png', cat: '{k.split('_')[0]}' }},")
+        cat = k.split('_')[0]
+        lines.append(f"  '{k}': {{ label: '{label_of(k, config)}', icon: 'assets/icons/construct/{k}.png', cat: '{cat}' }},")
     lines.append('};')
     lines.append('')
+    lines.append('// 每个点位的候选类型按 type_config.json 的类别顺序 + 类别内 order 排列')
     lines.append('const POIS_BY_MAP = {')
     for m in MAP_ORDER:
         lines.append(f"  '{m}': [")
         for s in model[m]:
-            opts = ', '.join(f"'{o}'" for o in s['options'])
-            lines.append(f"    {{ id: {s['id']}, x: {s['x']}, y: {s['y']}, options: [{opts}] }},")
+            opts = sorted(s['options'], key=lambda k: sort_order(k, config, key_table))
+            opt_str = ', '.join(f"'{o}'" for o in opts)
+            lines.append(f"    {{ id: {s['id']}, x: {s['x']}, y: {s['y']}, options: [{opt_str}] }},")
         lines.append('  ],')
     lines.append('};')
     lines.append('')
     path = os.path.join(project, out_js)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
-    print(f'[out] 写入 {out_js}')
+    print(f'[out] 写入 {out_js}（{len(used_keys)} 个类型）')
 
 
 def parse_existing_slots(slots_js):
@@ -218,6 +278,8 @@ def fit_transform(source, project, key_table):
 
     a, b = 768.0 / 4775.0, 0.0
     c, d = 768.0 / 4775.0, 0.0
+    # 只用人工校准过的老三类点位参与拟合，保证变换可复现、不随新点位漂移
+    CALIB = {'church', 'mage', 'village'}
     for _ in range(8):
         pairs = []
         for k, s in old.items():
@@ -229,6 +291,8 @@ def fit_transform(source, project, key_table):
             px = np.array([coord[i][0] for i in sub['ci']]) * a + b
             py = np.array([coord[i][1] for i in sub['ci']]) * c + d
             for poi in s['pois'].values():
+                if poi['type'] not in CALIB:
+                    continue
                 gx, gy = poi['coordinates']['x'], poi['coordinates']['y']
                 dd = np.hypot(px - gx, py - gy)
                 j = int(np.argmin(dd))
@@ -253,10 +317,12 @@ def main():
     src, proj = args.source, args.project
     materials = os.path.join(src, '素材')
     icon_of = load_icon_hashes(materials)
-    key_table = build_key_table(icon_of)
-    export_icons(key_table, icon_of, materials, proj)
     mp = pd.read_csv(os.path.join(src, 'MAP_PATTERN.csv'), encoding='utf-8-sig').set_index('ID')
     cs = pd.read_csv(os.path.join(src, 'CONSTRUCT.csv'), encoding='utf-8-sig').rename(columns={'Unnamed: 4': 'ci'})
+    present_ids = set(int(t) for t in cs[cs['is_display'] == 1]['type'])
+    config = load_type_config(proj)
+    key_table = build_key_table(icon_of, config, present_ids)
+    export_icons(key_table, config, materials, proj)
     coord_df = pd.read_csv(os.path.join(src, '坐标.csv'), encoding='utf-8-sig')
     coord = {int(r.ID): (float(r.picX), float(r.picY)) for r in coord_df.itertuples()}
     existing = parse_existing_slots(os.path.join(proj, 'assets', 'data', 'slots.js'))
@@ -392,7 +458,7 @@ def main():
     os.makedirs(os.path.dirname(os.path.join(proj, args.out_model)), exist_ok=True)
     json.dump(model_out, open(os.path.join(proj, args.out_model), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'[out] 写入 {args.out_model}')
-    export_slots_js(model, key_table, proj, args.out_js)
+    export_slots_js(model, config, key_table, proj, args.out_js)
 
     # ---- 校验 ----
     print('\n=== 校验 ===')

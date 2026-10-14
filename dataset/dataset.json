@@ -2,7 +2,7 @@
  "version": "2025-12-0.3",
  "extractedBy": "predefined-poi-extraction-tool",
  "extractionDate": "2025-08-18T10:34:10.846Z",
- "lastUpdated": "2026-10-14T02:29:20.000Z",
+ "lastUpdated": "2026-10-14T06:35:42.000Z",
  "description": "POI classifications for Nightreign seed recognition",
  "currentSeed": 1199,
  "currentNightlord": "heolstor",
@@ -36815,7 +36815,7 @@
        "x": 306.5,
        "y": 145.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "14": {
       "id": 14,
@@ -37364,7 +37364,7 @@
        "x": 306.5,
        "y": 145.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "14": {
       "id": 14,
@@ -37444,7 +37444,7 @@
        "x": 576.7,
        "y": 491.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "24": {
       "id": 24,
@@ -39602,7 +39602,7 @@
        "x": 306.5,
        "y": 145.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "18": {
       "id": 18,
@@ -39618,7 +39618,7 @@
        "x": 484.2,
        "y": 462.0
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "22": {
       "id": 22,
@@ -42039,7 +42039,7 @@
        "x": 572.2,
        "y": 575.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "23": {
       "id": 23,
@@ -42079,7 +42079,7 @@
        "x": 483.2,
        "y": 233.2
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      }
     }
    },
@@ -42341,7 +42341,7 @@
        "x": 318.5,
        "y": 239.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "17": {
       "id": 17,
@@ -42437,7 +42437,7 @@
        "x": 175.4,
        "y": 223.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      }
     }
    },
@@ -42564,7 +42564,7 @@
        "x": 216.9,
        "y": 351.3
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "25": {
       "id": 25,
@@ -43778,7 +43778,7 @@
        "x": 318.5,
        "y": 239.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "17": {
       "id": 17,
@@ -43802,7 +43802,7 @@
        "x": 546.7,
        "y": 174.1
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "21": {
       "id": 21,
@@ -44635,7 +44635,7 @@
        "x": 483.2,
        "y": 233.2
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "28": {
       "id": 28,
@@ -45191,7 +45191,7 @@
        "x": 306.5,
        "y": 145.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "17": {
       "id": 17,
@@ -45215,7 +45215,7 @@
        "x": 244.5,
        "y": 432.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "23": {
       "id": 23,
@@ -45849,7 +45849,7 @@
        "x": 304.0,
        "y": 610.2
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "18": {
       "id": 18,
@@ -46048,7 +46048,7 @@
        "x": 594.3,
        "y": 333.8
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "26": {
       "id": 26,
@@ -46183,7 +46183,7 @@
        "x": 594.3,
        "y": 333.8
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "26": {
       "id": 26,
@@ -46318,7 +46318,7 @@
        "x": 576.7,
        "y": 491.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "26": {
       "id": 26,
@@ -46421,7 +46421,7 @@
        "x": 212.9,
        "y": 511.1
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "15": {
       "id": 15,
@@ -47095,7 +47095,7 @@
        "x": 304.0,
        "y": 610.2
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "18": {
       "id": 18,
@@ -49448,7 +49448,7 @@
        "x": 304.0,
        "y": 610.2
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "18": {
       "id": 18,
@@ -49949,7 +49949,7 @@
        "x": 216.9,
        "y": 351.3
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "25": {
       "id": 25,
@@ -51005,7 +51005,7 @@
        "x": 546.7,
        "y": 174.1
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "23": {
       "id": 23,
@@ -51068,7 +51068,7 @@
        "x": 594.3,
        "y": 333.8
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "12": {
       "id": 12,
@@ -51219,7 +51219,7 @@
        "x": 216.9,
        "y": 351.3
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "15": {
       "id": 15,
@@ -51251,7 +51251,7 @@
        "x": 572.2,
        "y": 575.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      }
     }
    },
@@ -51362,7 +51362,7 @@
        "x": 572.2,
        "y": 575.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      }
     }
    },
@@ -54064,7 +54064,7 @@
        "x": 318.5,
        "y": 239.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "23": {
       "id": 23,
@@ -54072,7 +54072,7 @@
        "x": 483.2,
        "y": 233.2
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "24": {
       "id": 24,
@@ -54302,7 +54302,7 @@
        "x": 509.7,
        "y": 364.4
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "19": {
       "id": 19,
@@ -55136,7 +55136,7 @@
        "x": 306.5,
        "y": 145.5
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "14": {
       "id": 14,
@@ -55542,7 +55542,7 @@
        "x": 216.9,
        "y": 351.3
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "25": {
       "id": 25,
@@ -55828,7 +55828,7 @@
        "x": 304.0,
        "y": 610.2
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "18": {
       "id": 18,
@@ -56710,7 +56710,7 @@
        "x": 484.2,
        "y": 462.0
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "21": {
       "id": 21,
@@ -57942,7 +57942,7 @@
        "x": 594.3,
        "y": 333.8
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "20": {
       "id": 20,
@@ -57958,7 +57958,7 @@
        "x": 469.2,
        "y": 536.6
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "22": {
       "id": 22,
@@ -58720,7 +58720,7 @@
        "x": 469.2,
        "y": 536.6
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "22": {
       "id": 22,
@@ -58886,7 +58886,7 @@
        "x": 594.3,
        "y": 333.8
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "12": {
       "id": 12,
@@ -58894,7 +58894,7 @@
        "x": 175.4,
        "y": 223.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "13": {
       "id": 13,
@@ -59045,7 +59045,7 @@
        "x": 318.5,
        "y": 239.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "20": {
       "id": 20,
@@ -61723,7 +61723,7 @@
        "x": 509.7,
        "y": 364.4
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      },
      "20": {
       "id": 20,
@@ -61747,7 +61747,7 @@
        "x": 572.2,
        "y": 575.7
       },
-      "type": "forge_50103"
+      "type": "forge_50116"
      }
     }
    },
@@ -66323,7 +66323,7 @@
    "POI9": "church",
    "POI11": "church",
    "POI12": "ruin_34100",
-   "POI13": "forge_50103",
+   "POI13": "forge_50116",
    "POI14": "forge_50100",
    "POI15": "marsh_50030",
    "POI16": "ruin_34100",
@@ -66395,7 +66395,7 @@
    "POI8": "church",
    "POI10": "mage",
    "POI12": "ruin_34100",
-   "POI13": "forge_50103",
+   "POI13": "forge_50116",
    "POI14": "cathedral_38001",
    "POI15": "forge_50103",
    "POI16": "marsh_50011",
@@ -66405,7 +66405,7 @@
    "POI20": "marsh_50011",
    "POI21": "marsh_50011",
    "POI22": "forge_50103",
-   "POI23": "forge_50103",
+   "POI23": "forge_50116",
    "POI24": "ruin_34100",
    "POI25": "ruin_34100",
    "POI26": "marsh_50011",
@@ -66695,9 +66695,9 @@
    "POI9": "church",
    "POI11": "church",
    "POI12": "forge_50104",
-   "POI13": "forge_50103",
+   "POI13": "forge_50116",
    "POI18": "city_49430",
-   "POI20": "forge_50103",
+   "POI20": "forge_50116",
    "POI22": "marsh_50050",
    "POI26": "forge_50114",
    "POI27": "forge_50114"
@@ -67021,12 +67021,12 @@
    "POI16": "marsh_50001",
    "POI17": "cathedral_38100",
    "POI18": "city_49420",
-   "POI21": "forge_50103",
+   "POI21": "forge_50116",
    "POI23": "forge_50100",
    "POI24": "forge_50114",
    "POI25": "marsh_50001",
    "POI26": "marsh_50050",
-   "POI27": "forge_50103"
+   "POI27": "forge_50116"
   },
   "1041": {
    "POI3": "church",
@@ -67061,7 +67061,7 @@
    "POI13": "ruin_34200",
    "POI14": "marsh_50011",
    "POI15": "marsh_50011",
-   "POI16": "forge_50103",
+   "POI16": "forge_50116",
    "POI17": "forge_50114",
    "POI18": "city_49420",
    "POI19": "ruin_34300",
@@ -67073,7 +67073,7 @@
    "POI25": "ruin_34002",
    "POI26": "ruin_34002",
    "POI27": "ruin_34300",
-   "POI28": "forge_50103"
+   "POI28": "forge_50116"
   },
   "1043": {
    "POI5": "mage",
@@ -67090,7 +67090,7 @@
    "POI20": "marsh_50050",
    "POI22": "cathedral_38000",
    "POI23": "cathedral_38000",
-   "POI24": "forge_50103",
+   "POI24": "forge_50116",
    "POI25": "forge_50100",
    "POI26": "marsh_50050",
    "POI28": "marsh_50020"
@@ -67253,10 +67253,10 @@
    "POI10": "mage",
    "POI14": "cathedral_38000",
    "POI15": "cathedral_38100",
-   "POI16": "forge_50103",
+   "POI16": "forge_50116",
    "POI17": "marsh_50020",
    "POI18": "city_49420",
-   "POI19": "forge_50103",
+   "POI19": "forge_50116",
    "POI21": "marsh_50020",
    "POI23": "cathedral_38000",
    "POI24": "forge_50102",
@@ -67368,7 +67368,7 @@
    "POI24": "forge_50102",
    "POI25": "marsh_50050",
    "POI26": "marsh_50050",
-   "POI27": "forge_50103",
+   "POI27": "forge_50116",
    "POI28": "forge_50100"
   },
   "1061": {
@@ -67442,10 +67442,10 @@
    "POI6": "village",
    "POI10": "church",
    "POI11": "mage",
-   "POI13": "forge_50103",
+   "POI13": "forge_50116",
    "POI17": "marsh_50001",
    "POI18": "city_49410",
-   "POI22": "forge_50103",
+   "POI22": "forge_50116",
    "POI23": "forge_50113",
    "POI24": "forge_50102",
    "POI26": "forge_50113",
@@ -67531,7 +67531,7 @@
    "POI14": "marsh_50020",
    "POI15": "forge_50103",
    "POI16": "ruin_34000",
-   "POI17": "forge_50103",
+   "POI17": "forge_50116",
    "POI18": "city_49430",
    "POI19": "ruin_34000",
    "POI20": "ruin_34104",
@@ -67557,7 +67557,7 @@
    "POI22": "forge_50104",
    "POI23": "marsh_50001",
    "POI24": "cathedral_38000",
-   "POI25": "forge_50103",
+   "POI25": "forge_50116",
    "POI26": "cathedral_38000",
    "POI27": "cathedral_38001"
   },
@@ -67575,7 +67575,7 @@
    "POI18": "city_49410",
    "POI21": "forge_50104",
    "POI22": "marsh_50011",
-   "POI25": "forge_50103",
+   "POI25": "forge_50116",
    "POI26": "forge_50103",
    "POI27": "cathedral_38001",
    "POI28": "marsh_50050"
@@ -67593,7 +67593,7 @@
    "POI16": "forge_50100",
    "POI18": "city_49430",
    "POI20": "marsh_50040",
-   "POI23": "forge_50103",
+   "POI23": "forge_50116",
    "POI26": "forge_50100",
    "POI27": "forge_50113",
    "POI28": "forge_50113"
@@ -67607,7 +67607,7 @@
    "POI10": "mage",
    "POI12": "marsh_50011",
    "POI13": "ruin_34100",
-   "POI14": "forge_50103",
+   "POI14": "forge_50116",
    "POI15": "marsh_50011",
    "POI16": "marsh_50011",
    "POI18": "city_49410",
@@ -67698,7 +67698,7 @@
    "POI10": "church",
    "POI14": "forge_50103",
    "POI16": "forge_50104",
-   "POI17": "forge_50103",
+   "POI17": "forge_50116",
    "POI18": "city_49410",
    "POI22": "marsh_50040",
    "POI25": "forge_50103",
@@ -68009,7 +68009,7 @@
    "POI14": "marsh_50001",
    "POI15": "cathedral_38000",
    "POI16": "forge_50100",
-   "POI17": "forge_50103",
+   "POI17": "forge_50116",
    "POI18": "city_49410",
    "POI19": "forge_50100",
    "POI20": "marsh_50030",
@@ -68075,7 +68075,7 @@
    "POI21": "cathedral_38100",
    "POI22": "cathedral_38000",
    "POI23": "marsh_50001",
-   "POI24": "forge_50103",
+   "POI24": "forge_50116",
    "POI25": "forge_50103",
    "POI26": "marsh_50030",
    "POI27": "marsh_50030",
@@ -68216,7 +68216,7 @@
    "POI16": "city_49420",
    "POI18": "marsh_50001",
    "POI19": "cathedral_38001",
-   "POI21": "forge_50103",
+   "POI21": "forge_50116",
    "POI23": "cathedral_38100"
   },
   "1107": {
@@ -68225,7 +68225,7 @@
    "POI6": "church",
    "POI8": "mage",
    "POI9": "church",
-   "POI11": "forge_50103",
+   "POI11": "forge_50116",
    "POI12": "marsh_50001",
    "POI13": "cathedral_38001",
    "POI14": "forge_50103",
@@ -68245,11 +68245,11 @@
    "POI7": "church",
    "POI9": "church",
    "POI13": "marsh_50050",
-   "POI14": "forge_50103",
+   "POI14": "forge_50116",
    "POI15": "forge_50103",
    "POI16": "city_49410",
    "POI18": "marsh_50020",
-   "POI22": "forge_50103"
+   "POI22": "forge_50116"
   },
   "1109": {
    "POI1": "church",
@@ -68264,7 +68264,7 @@
    "POI19": "forge_50100",
    "POI20": "cathedral_38100",
    "POI21": "marsh_50020",
-   "POI22": "forge_50103"
+   "POI22": "forge_50116"
   },
   "1110": {
    "POI1": "church",
@@ -68631,8 +68631,8 @@
    "POI19": "forge_50100",
    "POI20": "marsh_50001",
    "POI21": "ruin_34000",
-   "POI22": "forge_50103",
-   "POI23": "forge_50103",
+   "POI22": "forge_50116",
+   "POI23": "forge_50116",
    "POI24": "forge_50100"
   },
   "1136": {
@@ -68663,7 +68663,7 @@
    "POI15": "marsh_50020",
    "POI16": "forge_50100",
    "POI17": "cathedral_38001",
-   "POI18": "forge_50103",
+   "POI18": "forge_50116",
    "POI19": "cathedral_38001",
    "POI20": "marsh_50011",
    "POI21": "ruin_34104",
@@ -68774,7 +68774,7 @@
    "POI3": "church",
    "POI8": "mage",
    "POI11": "church",
-   "POI13": "forge_50103",
+   "POI13": "forge_50116",
    "POI14": "ruin_34200",
    "POI15": "forge_50113",
    "POI17": "forge_50104",
@@ -68827,7 +68827,7 @@
    "POI19": "cathedral_38100",
    "POI20": "ruin_34003",
    "POI22": "marsh_50040",
-   "POI24": "forge_50103",
+   "POI24": "forge_50116",
    "POI25": "ruin_34001",
    "POI26": "marsh_50040",
    "POI27": "forge_50100",
@@ -68865,7 +68865,7 @@
    "POI14": "marsh_50030",
    "POI15": "ruin_34100",
    "POI16": "marsh_50030",
-   "POI17": "forge_50103",
+   "POI17": "forge_50116",
    "POI18": "city_49410",
    "POI19": "forge_50102",
    "POI20": "ruin_34003",
@@ -68982,7 +68982,7 @@
    "POI17": "ruin_34003",
    "POI18": "city_49420",
    "POI19": "ruin_34001",
-   "POI20": "forge_50103",
+   "POI20": "forge_50116",
    "POI21": "ruin_34100",
    "POI22": "forge_50102",
    "POI23": "ruin_34001",
@@ -69145,9 +69145,9 @@
    "POI16": "ruin_34000",
    "POI17": "city_49410",
    "POI18": "ruin_34002",
-   "POI19": "forge_50103",
+   "POI19": "forge_50116",
    "POI20": "marsh_50040",
-   "POI21": "forge_50103",
+   "POI21": "forge_50116",
    "POI22": "cathedral_38000",
    "POI23": "marsh_50020",
    "POI24": "marsh_50020"
@@ -69249,7 +69249,7 @@
    "POI17": "marsh_50011",
    "POI18": "forge_50102",
    "POI19": "forge_50102",
-   "POI20": "forge_50103",
+   "POI20": "forge_50116",
    "POI22": "ruin_34000"
   },
   "1168": {
@@ -69272,8 +69272,8 @@
    "POI6": "church",
    "POI9": "mage",
    "POI10": "mage",
-   "POI11": "forge_50103",
-   "POI12": "forge_50103",
+   "POI11": "forge_50116",
+   "POI12": "forge_50116",
    "POI13": "ruin_34003",
    "POI15": "marsh_50001",
    "POI16": "city_49420",
@@ -69293,7 +69293,7 @@
    "POI14": "forge_50114",
    "POI16": "cathedral_38100",
    "POI17": "city_49430",
-   "POI18": "forge_50103",
+   "POI18": "forge_50116",
    "POI20": "forge_50114",
    "POI22": "cathedral_38000",
    "POI23": "marsh_50050"
@@ -69657,10 +69657,10 @@
    "POI12": "marsh_50011",
    "POI16": "forge_50114",
    "POI17": "forge_50113",
-   "POI18": "forge_50103",
+   "POI18": "forge_50116",
    "POI20": "marsh_50040",
    "POI23": "forge_50113",
-   "POI24": "forge_50103"
+   "POI24": "forge_50116"
   },
   "1197": {
    "POI4": "church",

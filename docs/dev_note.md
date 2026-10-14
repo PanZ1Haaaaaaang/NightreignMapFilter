@@ -34,6 +34,19 @@ node tools\verify_app_logic.js
 - 生成器会自动沿用 `data.js`/`slots.js` 里旧点位的 id 与坐标，老 320 个种子人工校准的 11/9/8 个点位数据不会被动到
   （生成时校验：1670 条老数据 0 处冲突）。
 
+### 手工维护的类型表：`tools/type_config.json`
+
+`assets/data/slots.js` 是生成物，**改它会被下次重跑覆盖**。要改类型文案、菜单顺序、某类包含哪些结构 ID，
+改 `tools/type_config.json` 再重跑 `build_seed_data.py`：
+
+- `categoryOrder` / `categoryZH`：类别的先后与中文名（菜单按「类别顺序 + 类别内 order」排列）。
+- `types.<类型key>.label`：右键菜单里的文案。
+- `types.<类型key>.order`：同类内的顺序。
+- `types.<类型key>.ids`：该类型包含哪些结构 ID。**想把某个 ID 拆成单独一类，就把它从原来的 `ids` 里挪到新条目**
+  （例：`forge_50103` 与 `forge_50116` 素材图相同，但游戏里是死骑士 / 祖民两种，所以拆成两类）。
+- `types.<类型key>.icon`：可选，指定图标来源结构 ID（默认取 `ids` 里最小的）。
+- 生成图标时，若 `assets/icons/construct/<key>.png` 与源素材不同，视为自定义图标并**保留不覆盖**。
+
 ### 数据模型
 
 - `assets/data/slots.js`（生成物）：`POIS_BY_MAP[地图] = [{id,x,y,options:[类型key...]}]`、
