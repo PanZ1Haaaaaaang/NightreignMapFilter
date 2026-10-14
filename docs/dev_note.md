@@ -15,7 +15,15 @@ python tools\build_map_images.py --source "D:\games\NightReign\地图种子信�
 
 # 3) 校验：用前端同一套匹配逻辑验证 520 个种子是否都能唯一识别
 node tools\verify_app_logic.js
+
+# 4) 导入种子图（0-319 为旧版更新，1000-1199 为新增；先 --dry-run 预览）
+python tools\import_seed_images.py --source "D:\games\NightReign\地图种子信息0.3" --ranges 0-319,1000-1199 --dry-run
+python tools\import_seed_images.py --source "D:\games\NightReign\地图种子信息0.3" --ranges 0-319,1000-1199
 ```
+
+> 图片命名规则与 `script.js` 的 `showSeedImage` 一致：id < 1000 补三位（`017.jpg`），否则原样（`1000.jpg`）。
+> 2026-01 已完成 0-319 的 0.3 版替换（旧版为 2025.8 渲染，新版 2025.12：签名日期、部分标签由紫色改橙色、
+> 默认/山顶/火山口底图重制）。差异示例见 `docs/image-update-before-after.png`。
 
 ### 关键结论（踩过的坑）
 
